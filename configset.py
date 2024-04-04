@@ -10,7 +10,7 @@ import time
 import configparser
 
 CONFIGPATH = "/data/.config/nicotine/config"
-VERSION = '0.7.0'
+VERSION = '1.0.0'
 
 # Logging Setup
 logging.basicConfig(
