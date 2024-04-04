@@ -1,20 +1,18 @@
-version: '2'
+version: "3"
 services:
-  soulseek:
-    platform: linux/amd64
-    build: .
+  nicotine:
+    image: hockeygoalie35/nicotine-novnc-rpi:latest
+    container_name: nicotine
     environment:
-      - PGID=1000
       - PUID=1000
+      - PGID=1000
+      - TZ=America/Chicago
+    volumes:
+      - /path/to/Nicotine/data:/data
+      - /path/to/downloads:/data/.local/share/nicotine/downloads
+      - /path/to/incomplete:/data/.local/share/nicotine/incomplete
+      - /path/to/received:/data/.local/share/nicotine/received
+      - /path/to/shares:/data/shares
     ports:
       - 6080:6080
-    volumes:
-      - appdata:/data/.SoulseekQt
-      - downloads:/data/Soulseek Downloads
-      - shared:/data/Soulseek Shared Folder
-      - logs:/data/Soulseek Chat Logs
-volumes:
-  appdata:
-  downloads:
-  shared:
-  logs:
+    restart: unless-stopped

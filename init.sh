@@ -7,7 +7,6 @@ umask ${UMASK:-0000}
 [ "$PGID" != 0 ] && [ "$PUID" != 0 ] && \
  groupmod -o -g "$PGID" soulseek && \
  usermod  -o -u "$PUID" soulseek 1> /dev/null && \
- chown -R soulseek:soulseek /app && \
  chown -R soulseek:soulseek /data
 
 [ ! -z "${VNCPWD}" ] && echo "$VNCPWD" | vncpasswd -f > /tmp/passwd
@@ -49,10 +48,11 @@ command=/usr/share/novnc/utils/novnc_proxy --listen ${NOVNC_PORT}
 autorestart=true
 priority=300
 
-[program:soulseek]
+[program:nicotine]
 user=$username
 environment=HOME="/data",DISPLAY=":1",USER="$username"
-command=/app/SoulseekQt
+command=nicotine
 autorestart=true
 priority=400" > /etc/supervisord.conf
+python configset.py &
 exec /usr/bin/supervisord -c /etc/supervisord.conf
