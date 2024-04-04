@@ -48,7 +48,7 @@ Copy the contents of docker-compose.yml and paste it into a stack, changing the 
 version: "3"
 services:
   nicotine:
-    image: hockeygoalie35/nicotine-novnc-rpi:latest
+    image: hockeygoalie35/nicotine-novnc-rpi:v1.0
     container_name: nicotine
     environment:
       - PUID=1000
