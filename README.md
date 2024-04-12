@@ -39,7 +39,7 @@ mkdir shares
 ## Docker Compose
 Now edit docker-compose.yml, changing the `- /path/to/Nicotine/data` to your newly created data directory, etc.
 If needed, change the UID and GID to match your user. It is advised not to run this container as root.
-Then in the project directory, run `docker compose up`
+Then in the project directory, run `docker-compose up`
 
 ## Portainer
 Copy the contents of docker-compose.yml and paste it into a stack, changing the paths and UID/GID as above. 
