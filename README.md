@@ -91,3 +91,13 @@ After the first boot up, Nicotine will create a default config file, which sets 
 If for whatever reason the script doesn't fix it, you can go to: data/.config/nicotine/ and edit config, setting: header_bar = False
 
 
+## Building from Dockerfile (For devs)
+Use the following commands to build it from the Dockerfiles
+
+32-bit:
+`docker build --platform linux/arm/v7 -t hockeygoalie35/nicotine-novnc-rpi:armv7 . -f ./Dockerfile-armv7`
+
+64-Bit:
+`docker build --platform linux/arm64 -t hockeygoalie35/nicotine-novnc-rpi:arm64 . -f ./Dockerfile-arm64`
+
+
