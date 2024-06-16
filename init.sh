@@ -54,5 +54,5 @@ environment=HOME="/data",DISPLAY=":1",USER="$username"
 command=nicotine
 autorestart=true
 priority=400" > /etc/supervisord.conf
-python configset.py &
+python3 configset.py &
 exec /usr/bin/supervisord -c /etc/supervisord.conf
