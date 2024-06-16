@@ -44,11 +44,11 @@ Then in the project directory, run `docker-compose up`
 ## Portainer
 Copy the contents of docker-compose.yml and paste it into a stack, changing the paths and UID/GID as above. 
 
-```
-version: "3"
+*Make sure to use the correct image tag!*
+```yaml
 services:
   nicotine:
-    image: hockeygoalie35/nicotine-novnc-rpi:v1.0
+    image: hockeygoalie35/nicotine-novnc-rpi:arm64 #Or armv7 for 32bit
     container_name: nicotine
     environment:
       - PUID=1000
