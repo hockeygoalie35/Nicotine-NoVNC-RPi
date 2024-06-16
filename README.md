@@ -44,11 +44,11 @@ Then in the project directory, run `docker-compose up`
 ## Portainer
 Copy the contents of docker-compose.yml and paste it into a stack, changing the paths and UID/GID as above. 
 
-```
-version: "3"
+*Make sure to use the correct image tag!*
+```yaml
 services:
   nicotine:
-    image: hockeygoalie35/nicotine-novnc-rpi:v1.0
+    image: hockeygoalie35/nicotine-novnc-rpi:arm64 #Or armv7 for 32bit
     container_name: nicotine
     environment:
       - PUID=1000
@@ -89,5 +89,15 @@ After the first boot up, Nicotine will create a default config file, which sets 
 
 
 If for whatever reason the script doesn't fix it, you can go to: data/.config/nicotine/ and edit config, setting: header_bar = False
+
+
+## Building from Dockerfile (For devs)
+Use the following commands to build it from the Dockerfiles
+
+32-bit:
+`docker build --platform linux/arm/v7 -t hockeygoalie35/nicotine-novnc-rpi:armv7 . -f ./Dockerfile-armv7`
+
+64-Bit:
+`docker build --platform linux/arm64 -t hockeygoalie35/nicotine-novnc-rpi:arm64 . -f ./Dockerfile-arm64`
 
 
