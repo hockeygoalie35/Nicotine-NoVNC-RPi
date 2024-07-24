@@ -1,7 +1,7 @@
 version: "3"
 services:
   nicotine:
-    image: hockeygoalie35/nicotine-novnc-rpi:v1.0
+    image: hockeygoalie35/nicotine-novnc-rpi:arm64 #Or armv7 for 32bit
     container_name: nicotine
     environment:
       - PUID=1000
