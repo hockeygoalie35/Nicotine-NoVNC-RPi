@@ -1,4 +1,3 @@
-version: "3"
 services:
   nicotine:
     image: hockeygoalie35/nicotine-novnc-rpi:arm64 #Or armv7 for 32bit
