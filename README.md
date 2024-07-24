@@ -24,15 +24,11 @@ home/pi/Appdata
 ```
 Here's a bash script that will do just that in `home/pi/`
 ```bash
-cd
-mkdir Appdata
-cd Appdata
-mkdir nicotine
-cd nicotine
-mkdir downloads
-mkdir incomplete
-mkdir received
-mkdir shares
+mkdir -p /home/pi/Appdata/nicotine/data
+mkdir -p /home/pi/Appdata/nicotine/downloads
+mkdir -p /home/pi/Appdata/nicotine/incomplete
+mkdir -p /home/pi/Appdata/nicotine/received
+mkdir -p /home/pi/Appdata/nicotine/shares
 ```
 
 # Container Setup
@@ -55,11 +51,11 @@ services:
       - PGID=1000
       - TZ=America/Chicago
     volumes:
-      - /path/to/Nicotine/data:/data
-      - /path/to/downloads:/data/.local/share/nicotine/downloads
-      - /path/to/incomplete:/data/.local/share/nicotine/incomplete
-      - /path/to/received:/data/.local/share/nicotine/received
-      - /path/to/shares:/data/shares
+      - /home/pi/Appdata/nicotine/data:/data
+      - /home/pi/Appdata/nicotine/downloads:/data/.local/share/nicotine/downloads
+      - /home/pi/Appdata/nicotine/incomplete:/data/.local/share/nicotine/incomplete
+      - /home/pi/Appdata/nicotine/received:/data/.local/share/nicotine/received
+      - /home/pi/Appdata/nicotine/shares:/data/shares
     ports:
       - 6080:6080
     restart: unless-stopped
